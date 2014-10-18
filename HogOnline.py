@@ -188,6 +188,8 @@ class HogOnline:
         Rolls <dice> dice for <player_id> in <game>.
         Returns an error if the it is not <player_id>'s turn.
         """
+        if int(dice) < 0 or int(dice) > 10:
+            return json.dumps({'error':True})
         if self.games[int(game)].CanPlay(int(player_id)):
             score0, score1 = self.games[int(game)].DoMove(int(player_id),int(dice))
             return json.dumps({'error':False,'score0':score0,'score1':score1})
