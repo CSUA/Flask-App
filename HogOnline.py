@@ -159,7 +159,7 @@ class HogOnline:
     def __init__(self):
         self.games = {}
         self.state_lock = Lock()
-    def GetEmptyGame(self, name):
+    def Join(self, name):
         """
         Return the id of an empty game and the id of the player within the game.
         """
